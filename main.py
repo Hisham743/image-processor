@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 import tkinter as tk
 from tkinter import ttk, filedialog
@@ -7,7 +7,11 @@ from ttkthemes import ThemedTk
 from PIL import ImageTk, Image, ImageOps
 
 FONT = ("Helvetica", 20)
-BASE_DIR = r"C:\Users\hp\PycharmProjects\image-processor"
+BASE_DIR = (
+    f"{os.path.dirname(sys.executable)}\\_internal"
+    if getattr(sys, "frozen", False)
+    else os.path.dirname(__file__)
+)
 
 
 class ImageProcessor:
